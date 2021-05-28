@@ -20,5 +20,5 @@ val titular: TitularResponse) {
     }
 
 }
-data class TitularResponse(val id: String, val nome: String, val cpf: String)
+data class TitularResponse( val nome: String, val cpf: String)
 data class InstituicaoResponse(val nome: String, val ispb: String)

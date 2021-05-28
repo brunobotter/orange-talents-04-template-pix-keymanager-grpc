@@ -24,7 +24,7 @@ class NovaChavePixService(@Inject val repository: ChavePixRepository,
         }
         //consulta no sistema do ERP do ITAU
         val erpItauResponse = erpItau.buscaContaPorTipo(novaChavePix?.clienteId!!, novaChavePix.tipoDaConta!!.name)
-        val conta = erpItauResponse.body()?.toModel() ?: throw IllegalStateException("Cliente nao encontrato no itau")
+        val conta = erpItauResponse.body()?.toModel() ?: throw IllegalStateException("Cliente não encontrado no Itau")
         //salva no banco de dados
         val novaChave = novaChavePix.toModel(conta)
         repository.save(novaChave)
