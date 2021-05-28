@@ -1,0 +1,6 @@
+applicationType: grpc
+defaultPackage: br.com.bruno.orange.pixdesafio
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle
+features: [annotation-api, app-name, data, data-jpa, gradle, grpc, jdbc-hikari, junit, kotlin, kotlin-application, logback, postgres, readme, shade, testcontainers, yaml]

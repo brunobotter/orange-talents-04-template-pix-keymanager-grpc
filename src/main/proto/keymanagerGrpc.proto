@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.bruno.orange.pixdesafio";
+option java_outer_classname = "KeymanagerGrpc";
+
+package br.com.bruno.orange.pixdesafio;
+
+service KeymanagerRegistra{
+    rpc criar(RegistraChavePixRequest) returns (RegistraChavePixResponse){}
+}
+
+message RegistraChavePixRequest{
+   string clienteId = 1;
+   TipoDaChave tipoDaChave = 2;
+   string valorDaChave = 3;
+   TipoDaConta tipoDaConta = 4;
+}
+
+message RegistraChavePixResponse{
+    string clienteId = 1;
+    string pixId = 2;
+}
+
+enum TipoDaChave{
+    UNKNOWN_TIPO_CHAVE = 0;
+    CPF = 1;
+    CELULAR = 2;
+    EMAIL = 3;
+    ALEATORIA = 4;
+}
+
+enum TipoDaConta{
+    UNKNOWN_TIPO_CONTA = 0;
+    CONTA_CORRENTE = 1;
+    CONTA_POUPANCA = 2;
+}
