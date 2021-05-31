@@ -3,7 +3,6 @@ package br.com.bruno.orange.pixdesafio.pix.consulta
 import br.com.bruno.orange.pixdesafio.ConsultaChavePixResponse
 import br.com.bruno.orange.pixdesafio.TipoDaChave
 import br.com.bruno.orange.pixdesafio.TipoDaConta
-import br.com.bruno.orange.pixdesafio.pix.carrega.ChavePixInfo
 import com.google.protobuf.Timestamp
 import java.time.ZoneId
 

@@ -18,6 +18,10 @@ service KeymanagerDeleta{
 service KeymanagerConsulta {
   rpc carrega(ConsultaChavePixRequest) returns (ConsultaChavePixResponse) {}
 }
+
+service KeymanagerLista{
+  rpc lista(ListaChavePixRequest) returns (ListaChavePixResponse){}
+}
 message RegistraChavePixRequest{
    string clienteId = 1;
    TipoDaChave tipoDaChave = 2;
@@ -72,6 +76,22 @@ message ConsultaChavePixResponse{
   string clienteId = 1;
   string pixId     = 2;
   ChavePix chave   = 3;
+}
+
+message ListaChavePixRequest{
+  string clienteId = 1;
+}
+
+message ListaChavePixResponse{
+ message ChavePix{
+  string pixId = 1;
+  string chave = 2;
+  TipoDaChave tipoDaChave = 3;
+  TipoDaConta tipoDaConta = 4;
+  google.protobuf.Timestamp criadaEm = 5;
+ }
+  string clienteId         = 1;
+  repeated ChavePix chaves = 2;
 }
 
 enum TipoDaChave{

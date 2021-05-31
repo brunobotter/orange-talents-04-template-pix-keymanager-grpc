@@ -3,7 +3,6 @@ package br.com.bruno.orange.pixdesafio.pix.consulta
 import br.com.bruno.orange.pixdesafio.erros.exception.ChavePixNaoExistenteException
 import br.com.bruno.orange.pixdesafio.externo.bcb.ErpBcb
 import br.com.bruno.orange.pixdesafio.pix.ChavePixRepository
-import br.com.bruno.orange.pixdesafio.pix.carrega.ChavePixInfo
 import br.com.bruno.orange.pixdesafio.validation.ValidUUID
 import io.micronaut.core.annotation.Introspected
 import io.micronaut.http.HttpStatus

@@ -6,7 +6,7 @@ import br.com.bruno.orange.pixdesafio.TipoDaConta.*
 import br.com.bruno.orange.pixdesafio.pix.ChavePix
 import br.com.bruno.orange.pixdesafio.pix.ContaAssociada
 import br.com.bruno.orange.pixdesafio.pix.Instituicoes
-import br.com.bruno.orange.pixdesafio.pix.carrega.ChavePixInfo
+import br.com.bruno.orange.pixdesafio.pix.consulta.ChavePixInfo
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
