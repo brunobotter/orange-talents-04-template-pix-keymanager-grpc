@@ -3,6 +3,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "br.com.bruno.orange.pixdesafio";
 option java_outer_classname = "KeymanagerGrpc";
+import "google/protobuf/timestamp.proto";
 
 package br.com.bruno.orange.pixdesafio;
 
@@ -10,6 +11,13 @@ service KeymanagerRegistra{
     rpc criar(RegistraChavePixRequest) returns (RegistraChavePixResponse){}
 }
 
+service KeymanagerDeleta{
+  rpc deletar(DeletaChavePixRequest) returns (DeletaChavePixResponse){}
+}
+
+service KeymanagerConsulta {
+  rpc carrega(ConsultaChavePixRequest) returns (ConsultaChavePixResponse) {}
+}
 message RegistraChavePixRequest{
    string clienteId = 1;
    TipoDaChave tipoDaChave = 2;
@@ -20,6 +28,50 @@ message RegistraChavePixRequest{
 message RegistraChavePixResponse{
     string clienteId = 1;
     string pixId = 2;
+}
+
+message DeletaChavePixResponse{
+  string pixId = 1;
+  string clienteId = 2;
+}
+message DeletaChavePixRequest{
+  string pixId = 1;
+  string clienteId = 2;
+}
+
+message ConsultaChavePixRequest{
+  message FiltroPorPixId {
+    string clienteId = 1;
+    string pixId     = 2;
+  }
+  //pesquisa por um campo ou outro
+  oneof filtro {
+    FiltroPorPixId pixId  = 1;
+    string chave          = 2;
+  }
+}
+
+message ConsultaChavePixResponse{
+  message ChavePix {
+
+    message ContaInfo {
+      TipoDaConta tipo     = 1;
+      string instituicao   = 2; /** ITAU UNIBANCO */
+      string nomeDoTitular = 3;
+      string cpfDoTitular  = 4;
+      string agencia       = 5;
+      string numeroDaConta = 6;
+    }
+
+    TipoDaChave tipo        = 1;
+    string chave            = 2;
+    ContaInfo conta         = 3;
+    google.protobuf.Timestamp criadaEm = 4;
+  }
+
+  string clienteId = 1;
+  string pixId     = 2;
+  ChavePix chave   = 3;
 }
 
 enum TipoDaChave{

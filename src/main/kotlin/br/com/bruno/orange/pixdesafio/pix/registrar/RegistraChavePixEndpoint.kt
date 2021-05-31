@@ -12,7 +12,6 @@ import javax.inject.Singleton
 class RegistraChavePixEndpoint(@Inject private val service: NovaChavePixService) : KeymanagerRegistraGrpc.KeymanagerRegistraImplBase(){
 
     override fun criar(request: RegistraChavePixRequest?, responseObserver: StreamObserver<RegistraChavePixResponse>?) {
-      println(request)
        val novaChave = request!!.toModel()
         val service = service.salvar(novaChave)
         responseObserver?.onNext(RegistraChavePixResponse.newBuilder()
